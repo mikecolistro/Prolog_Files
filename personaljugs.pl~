@@ -1,0 +1,48 @@
+:- dynamic
+	jug1/1,
+	jug2/1.
+jug1(0).
+jug2(0).
+%:- dynamic
+	%jug1/1,
+	%jug2/1.
+goal(2,jug2,4).
+emptyj1:-
+	retract(jug1(X)),
+	asserta(jug1(0)).
+emptyj2:-
+	retract(jug2(X)),
+	asserta(jug2(0)).
+fillj1:-
+	retract(jug1(X)),
+	asserta(jug1(3)).
+fillj2:-
+	retract(jug2(X)),
+	asserta(jug2(4)).
+xferj1toj2:-
+	jug1(Y),
+	retract(jug2(X)),
+	asserta(jug2(Y)).
+xferj2toj1:-
+	jug2(Y),
+	retract(jug1(X)),
+	asserta(jug1(Y)).
+j1overfill:-
+	jug1(X),
+	X > 3,
+	retract(jug1(X)),
+	asserta(jug1(3)).
+j2overfill:-
+	jug2(X),
+	X > 4,
+	retract(jug2(X)),
+	asserta(jug2(4)).
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+man(socrates).
+mortal(X) :- man(X).
+mortal(socrates).
+car(bmw,white,2013).
+
+%Reading:child(A,B) = A is a child of B
+child(C,F)if father(F,C).

@@ -1,0 +1,71 @@
+person(chris).
+person(lucy).
+person(jim).
+person(nan).
+person(tom).
+person(steve).
+person(kate).
+person(jill).
+person(rob).
+person(sue).
+person(dan).
+person(ann).
+person(joe).
+person(sara).
+person(mike).
+is_parent(jill,ann).
+is_parent(jill,joe).
+is_parent(rob,ann).
+is_parent(rob,joe).
+is_parent(sue,sara).
+is_parent(sue,mike).
+is_parent(dan,sara).
+is_parent(dan,mike).
+is_parent(chris,jill).
+is_parent(lucy,jill).
+is_parent(jim,rob).
+is_parent(nan,sue).
+is_parent(nan,rob).
+is_parent(tom,sue).
+is_parent(steve,dan).
+is_parent(kate,dan).
+is_female(lucy).
+is_female(jill).
+is_female(ann).
+is_female(nan).
+is_female(sue).
+is_female(sara).
+is_female(kate).
+is_male(chris).
+is_male(jim).
+is_male(rob).
+is_male(joe).
+is_male(tom).
+is_male(steve).
+is_male(dan).
+is_male(mike).
+is_father(X,Y) :-
+	is_male(X),
+	is_parent(X,Y),!.
+is_mother(X,Y) :-
+	is_female(X),
+	is_parent(X,Y),!.
+
+ancester(X,Z) :-
+	is_parent(X,Y),
+	is_parent(Y,Z),!.
+is_sibling(Y,Z) :-
+	is_parent(X,Y),
+	is_parent(X,Z),!.
+is_cousin(X,Y):-
+	person(W),
+	person(Z),
+	is_parent(W,X),
+	is_parent(Z,Y),
+	is_sibling(W,Z),!.
+
+is_brother(X,Y):-
+	is_male(X),
+	is_sibling(X,Y),!.
+
+

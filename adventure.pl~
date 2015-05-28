@@ -1,0 +1,6 @@
+mortal(X) :- person(X). %For all X, X is mortal if X is a person
+person(socrates).%socrates is a person
+person(plato).
+person(zeno).
+person(aristotle).
+

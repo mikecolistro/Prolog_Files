@@ -1,0 +1,30 @@
+boxnum(1).
+boxnum(2).
+boxnum(3).
+boxnum(4).
+boxnum(5).
+
+box(1,black,6).
+box(2,black,2).
+box(3,white,2).
+box(4,black,4).
+box(5,white,6).
+%dana, william charlie daniel sam
+owners(dana,william,charlie,daniel,sam):-
+ getbox(dana), getbox(william), getbox(charlie), getbox(daniel), getbox(sam),
+ dana\=william,dana\=charlie,dana\=daniel,dana\=sam,
+ william\=charlie,william\=daniel,william\=sam,
+ charlie\=daniel,charlie\=sam,
+ daniel\=sam,
+ box(dana,ColorA,_), box(dana,ColorA,_), % Ann and Bill have same color
+ box(D,ColorD,_), box(E,ColorD,_), % Don and Eric have same color
+ box(C,_,SizeC), box(D,_,SizeC), % Charlie and Don have same size
+ box(E,_,SizeE), box(B,_,SizeB),
+ SizeE < SizeB. % Eric’s smaller than Bill’s 
+
+
+
+
+
+
+
